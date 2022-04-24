@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<title>文字数カウンター</title>
+<meta name="description" content="シンプルな文字数カウンターです。テキストエリアに文字を貼り付ける、もしくはそのまま入力してください。リアルタイムで文字数がカウントされます。レポート作成やブログ執筆をする際の字数チェックにお使いください。">
+
+<meta property="og:type" content="">
+<meta property="og:title" content="文字数カウンター">
+<meta property="og:description" content="シンプルな文字数カウンターです。テキストエリアに文字を貼り付ける、もしくはそのまま入力してください。リアルタイムで文字数がカウントされます。レポート作成やブログ執筆をする際の字数チェックにお使いください。">
+<meta property="og:url" content="">
+<meta property="og:image" content="">
+
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<link rel="canonical" href="" />
+<link rel="stylesheet" href="css/index.css">
+
+<style>
+    body {
+        font-family: 'Josefin Sans',"游ゴシック体","YuGothic","游ゴシック","Yu Gothic","ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ",'Meiryo',"ＭＳ Ｐゴシック",Helvetica,Arial,sans-serif;
+    }
+
+
+    .main-area {
+        margin: 0px 20% 0px 10%;
+    }
+
+    textarea {
+        padding: 20px;
+        font-size: 18px;
+        width: 90%;
+    }
+    #inputlength {
+        font-size: 30px;
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+    h1 {
+        margin-top: 20px;
+        margin-left: 20px;
+        letter-spacing: 2px;
+        font-size: 18px;
+    }
+
+    h1:before {
+        content:"";
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        background-image: url(./src/memo.svg);
+        background-size: contain;
+        vertical-align: middle;
+        margin-right: 5px;
+    }
+
+    h2 {
+        margin-top: 40px;
+        font-size: 18px;
+    }
+
+    ul {
+        margin-top: -10px;
+        line-height: 30px;
+        margin-left: 0px;
+        padding-left: 23px;
+    }
+
+    .result {
+        text-align: right;
+    }
+
+    a {
+        text-decoration: none;
+    }
+</style>
+</head>
+<body>
+<h1>文字数カウンター</h1>
+
+<div class="main-area">
+    <p class="result"><span id="inputlength">0</span>文字</p>
+<textarea rows="15" placeholder="あなたの素敵な文章を入力！" onInput="ShowLength(value);"></textarea>
+
+<h2>このツールの仕様</h2>
+<ul>
+    <li>文字を入力するたびにカウントされます。</li>
+    <li>改行とスペースはカウントされません。</li>
+</ul>
+
+<h2>おすすめの文章術の本</h2>
+<ul>
+    <li><a href="https://www.amazon.co.jp/dp/B013DX94FC">『新しい文章力の教室　苦手を得意に変えるナタリー式トレーニング』</a></li>
+</ul>
+
+<h2>詳しい方向け</h2>
+<ul>
+    <li>.length の結果を返しています。</li>
+    <li>そのため、たとえば「𠮟」は2文字としてカウントされてしまいます。すみません。</li>
+</ul>
+
+<p style="text-align: right; color: gray">created by <a href="https://twitter.com/atohsaaa">@atohsaaa</a></p>
+</div>
+
+
+
+<script>
+function ShowLength( str ) {
+    document.getElementById("inputlength").innerHTML = Number(str.split(/\s/).join("").length).toLocaleString();
+ }
+
+</script>
+</body>
+</html>
